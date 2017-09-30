@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<!-- org.hibernate.engine.jndi.JndiException: Error parsing JNDI name [] 将下图中的session-factory name="" 中的name属性删除，就能解决这个报错问题。 -->
+		<!-- org.hibernate.dialect.MySQL5InnoDBDialect org.hibernate.dialect.Oracle10gDialect -->
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+		<property name="hibernate.show_sql">false</property>
+		<property name="hibernate.format_sql">true</property>
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		<!-- <property name="current_session_context_class">thread</property> -->
+
+		<mapping resource="com/blake/entiyi/Info.hbm.xml" />
+		<mapping resource="com/blake/entiyi/Privilege.hbm.xml" />
+		<mapping resource="com/blake/entiyi/Role.hbm.xml" />
+		<mapping resource="com/blake/entiyi/User.hbm.xml" />
+	</session-factory>
+</hibernate-configuration>

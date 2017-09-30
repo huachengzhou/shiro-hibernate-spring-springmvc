@@ -1,0 +1,22 @@
+log4j.rootLogger=INFO, Console  
+  
+#Console  
+log4j.appender.Console=org.apache.log4j.ConsoleAppender  #org.apache.log4j.ConsoleAppender（控制台）
+org.apache.log4j.HTMLLayout  #以HTML表格形式布局
+log4j.appender.Console.layout.ConversionPattern=%d [%t] %-5p [%c] - %m%n    # 如果使用pattern布局就要指定的打印信息的具体格式ConversionPattern，打印参数
+
+log4j.rootCategory=INFO,R  # R地址输出日志
+log4j.appender.R=org.apache.log4j.DailyRollingFileAppender   # 定义名为R的输出端的类型为每天产生一个日志文件。
+log4j.appender.R.File=D:\\log\\log4j  #此句为定义名为R的输出端的文件名为D:\\log\\log4j可以自行修改。
+  
+log4j.logger.java.sql.ResultSet=ERROR  
+log4j.logger.org.apache=ERROR  
+log4j.logger.java.sql.Connection=ERROR  
+log4j.logger.java.sql.Statement=ERROR  
+log4j.logger.java.sql.PreparedStatement=ERROR  
+
+log4j.logger.org.hibernate.ps.PreparedStatementCache=WARN   
+log4j.logger.org.hibernate=INFO   
+log4j.logger.org.logicalcobwebs=WARN
+log4j.logger.org.springframework=INFO
+

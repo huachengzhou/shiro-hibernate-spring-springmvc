@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-9-26 16:25:34 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.blake.entiyi.User" table="shiro_hibernate_user">
+        <id name="uid" type="java.lang.Integer">
+            <column name="UID" />
+            <generator class="native" />
+        </id>
+        <property name="organizationId" type="java.lang.String">
+            <column name="ORGANIZATIONID" />
+        </property>
+        <property name="username" type="java.lang.String">
+            <column name="USERNAME" />
+        </property>
+        <property name="password" type="java.lang.String">
+            <column name="PASSWORD" />
+        </property>
+        <property name="salt" type="java.lang.String">
+            <column name="SALT" />
+        </property>
+        <set name="roles" table="role_user" inverse="true" lazy="false">
+            <key>
+                <column name="UID" />
+            </key>
+            <many-to-many class="com.blake.entiyi.Role" column="RID" />
+        </set>
+        <property name="locked" type="java.lang.Boolean">
+            <column name="LOCKED" />
+        </property>
+    </class>
+</hibernate-mapping>

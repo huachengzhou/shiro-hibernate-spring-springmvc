@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-9-26 16:25:34 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.blake.entiyi.Role" table="shiro_hibernate_role">
+        <id name="rid" type="java.lang.Integer">
+            <column name="RID" />
+            <generator class="native" />
+        </id>
+        <property name="role" type="java.lang.String">
+            <column name="ROLE" />
+        </property>
+        <property name="description" type="java.lang.String">
+            <column name="DESCRIPTION" />
+        </property>
+        <property name="available" type="java.lang.Boolean">
+            <column name="AVAILABLE" />
+        </property>
+        <set name="privileges" table="privilege_role" inverse="true" lazy="true">
+            <key>
+                <column name="RID" />
+            </key>
+            <many-to-many class="com.blake.entiyi.Privilege" column="PID" />
+        </set>
+        <set name="users" table="role_user" inverse="false" lazy="false">
+            <key>
+                <column name="RID" />
+            </key>
+            <many-to-many class="com.blake.entiyi.User" column="UID"/>
+        </set>
+    </class>
+</hibernate-mapping>
