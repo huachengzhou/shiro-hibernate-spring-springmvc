@@ -23,3 +23,6 @@ UserRealm Class主要是身份验证以及验证成功利用username获取角色
 之后就可以在Controller上面利用注解比如:
 @RequiresPermissions(value = { "user:select" })
 当然也可以利用Spring的aop也是一样呢
+
+假如发现问题可以联系本人QQ134266212
+或者邮箱noatnu@163.com
